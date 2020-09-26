@@ -2,7 +2,7 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-from flask import Flask
+from flask import Flask, redirect, url_for
 
 app = Flask(__name__)
 
@@ -15,6 +15,11 @@ def print_hi():
 @app.route('/<name>')
 def print_name(name):
     return f'<h1>Hi {name}<h1>'
+
+
+@app.route('/redirect/hi')
+def redirecting():
+    return redirect(url_for('print_hi'))
 
 
 # Press the green button in the gutter to run the script.
